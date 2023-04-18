@@ -1,9 +1,10 @@
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
 import { doc, updateDoc } from 'firebase/firestore';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { db } from '../firebase';
+import {FcHome} from "react-icons/fc"
 
 export default function Profile() {
   const auth = getAuth()
@@ -68,6 +69,14 @@ export default function Profile() {
               <p onClick={onLogOut} className='text-blue-600 hover:text-blue-800 transition ease-in-out duration-200 cursor-pointer'>Sign Out</p>
           </div>          
         </form>
+
+        <button type='submit' className='w-full bg-blue-600 text-white uppercase rounded px-7 py-3 text-sm font-medium transition ease-in-out shadow-md hover:bg-blue-700 hover:shadow-lg cursor-pointer duration-150 active:bg-blue-800'> 
+        <Link to="/create-listing"
+        className='flex justify-center items-center'>
+        
+        <FcHome className='mr-2 text-3xl bg-red-300 rounded-full p-1 border-2'/>
+        Sell or rent your home</Link>
+        </button>
       </div>
     </section>
     </>
