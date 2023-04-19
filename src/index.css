@@ -5,3 +5,13 @@
 body {
     background-color: aliceblue;
 }
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    color: aliceblue;
+
+}
+
+.swiper-pagination-progressbar, .swiper-pagination-progressbar-fill {
+    background: aliceblue !important;
+}
