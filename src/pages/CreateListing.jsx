@@ -28,7 +28,7 @@ export default function CreateListing() {
         discountedPrice: 0,
         latitude: 0,
         longitude: 0,
-        images: {}
+        images: {},
     });
     
     const {type, name, bedrooms, bathrooms, parking, furnished, address, description, offer, regularPrice, discountedPrice,latitude, longitude, images} = formData
@@ -87,9 +87,9 @@ export default function CreateListing() {
             setLoading(false)
             toast.error("Please enter a correct address.");
         return;
-        }else {
-            geolocation.lat = latitude;
-            geolocation.lng = longitude
+        } else {
+            geolocation.lat = +latitude;
+            geolocation.lng = +longitude
         }
         } 
         
@@ -146,8 +146,8 @@ export default function CreateListing() {
      
      delete formDataCopy.images;
      !formDataCopy.offer && delete formDataCopy.discountedPrice;
-     delete formDataCopy.latitude;
-     delete formDataCopy.longitude;
+    //  delete formDataCopy.latitude;
+    //  delete formDataCopy.longitude;
      const docRef = await addDoc(collection(db,"listings"), formDataCopy);
      setLoading(false)
      toast.success("Listing created");
@@ -226,13 +226,13 @@ export default function CreateListing() {
                 <div className='flex space-x-6'>
                     <div className=''>
                         <p className='text-lg mt-6 font-semibold'>Latitude</p>
-                        <input type='number' id='latitude' value={latitude} onChange={onChange} min="-90" max="90" required 
+                        <input type='number' id='latitude' value={+latitude} onChange={onChange} min="-90.0000" max="90.0000" required 
                         className='w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out duration-150 focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6' />
                     </div>
                     <div>
                     <p className='text-lg mt-6 font-semibold'>Longitude</p>
-                    <input type='number' id='longitude' value={longitude} onChange={onChange}
-                    min="-180" max="180" required
+                    <input type='number' id='longitude' value={+longitude} onChange={onChange}
+                    min="-180.0000" max="180.0000" required
                     className='w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out duration-150 focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6' />
                     </div>                 
                 </div>

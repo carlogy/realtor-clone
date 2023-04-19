@@ -9,7 +9,7 @@ import {db} from "../firebase"
 import { useNavigate, useParams } from 'react-router';
 
 
-export default function CreateListing() {
+export default function EditListing() {
     const navigate = useNavigate();
     const auth = getAuth();
     const [geolocationEnabled, setGeolocationEnabled] = useState(false);
@@ -174,8 +174,8 @@ export default function CreateListing() {
      
      delete formDataCopy.images;
      !formDataCopy.offer && delete formDataCopy.discountedPrice;
-     delete formDataCopy.latitude;
-     delete formDataCopy.longitude;
+    //  delete formDataCopy.latitude;
+    //  delete formDataCopy.longitude;
      const docRef = doc(db,"listings", params.listingId);
      await updateDoc(docRef, formDataCopy);
      setLoading(false)
