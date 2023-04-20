@@ -31,7 +31,7 @@ export default function Contact({userRef, listing}) {
         value={message} 
         onChange={onchange} 
         className='w-full px-4 py-2 text-xl border-gray-300 rounded transition duration-150 ease-in-out
-        focus:text-gray-700 border-slate-700'>
+        focus:text-gray-700 '>
         </textarea>
     </div>
     <a href={`mailto:${contactOwner.email}?Subject=${listing.name}$body=${message}`}>
